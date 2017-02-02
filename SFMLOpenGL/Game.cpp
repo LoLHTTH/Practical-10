@@ -482,17 +482,17 @@ void Game::applyMatrix(Matrix matrix)
 void Game::rotate(Matrix matrix)
 {
 	Vector vec[8];
+	//Matrix matrixTrans;
 	for (int i = 0; i < 8; i++)
 	{
-		Matrix matrixTrans = matrixTrans.translate(-vertex[i].coordinate[0], -vertex[i].coordinate[1]);
-
+		//matrixTrans = matrixTrans.translate(-vertex[i].coordinate[0], -vertex[i].coordinate[1]);
 		vec[i] = Vector(vertex[i].coordinate[0], vertex[i].coordinate[1], vertex[i].coordinate[2]);
-		vec[i] = matrixTrans * vec[i];
+
+		//vec[i] = matrixTrans * vec[i];
 		vec[i] = matrix * vec[i];
 
-		matrixTrans = matrixTrans.translate(vertex[i].coordinate[0], vertex[i].coordinate[1]);
-
-		vec[i] = matrixTrans * vec[i];
+		//matrixTrans = matrixTrans.translate(vertex[i].coordinate[0], vertex[i].coordinate[1]);
+		//vec[i] = matrixTrans * vec[i];
 
 		vertex[i].coordinate[0] = vec[i].x();
 		vertex[i].coordinate[1] = vec[i].y();
